@@ -90,7 +90,7 @@ const Uplodeform = () => {
           );
         })}
         <button className="bg-blue-500 hover:opacity-85 py-2 rounded-md font-bold text-white tracking-[1px] text-lg">
-          Add{" "}
+          Add{". "}
         </button>
       </form>
     </div>
