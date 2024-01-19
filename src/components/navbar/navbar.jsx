@@ -23,7 +23,7 @@ const inconData = [
 
 const Navbar = () => {
   return (
-    <nav className="flex justify-between items-center w-full bg-white text-black  shadow border rounded-md  px-5 py-3 z-10 sticky top-0">
+    <nav className="flex justify-between items-center gap-4 w-full bg-white text-black  shadow border rounded-md  px-5 py-3 z-10 sticky top-0">
       <Link href="/movieshome">
         <h1 className="text-blue-700 font-bold ">myBOMMA</h1>
       </Link>

@@ -7,7 +7,7 @@ const Input = (props) => {
       <input
         type={props.type}
         placeholder={props.placeholder}
-        className=" w-full bg-transparent focus:outline-none placeholder-slate-500 text-slate-800 placeholder:text-slate-300 placeholder:text-sm placeholder:font-light"
+        className=" w-full bg-transparent focus:outline-none placeholder-slate-500 text-slate-800 placeholder:text-slate-500 placeholder:text-sm placeholder:font-light"
       />
       <span className="cursor-pointer">{props.icon}</span>
     </div>

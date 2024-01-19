@@ -17,7 +17,7 @@ const HomeCard = () => {
         <div className="flex justify-center items-center">
           <Button
             to="/movieshome"
-            bgColor="blue"
+            bgColor="#1D4ED8"
             color="white"
             width="150px"
             input="enter"
