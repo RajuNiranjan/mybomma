@@ -54,7 +54,7 @@ const Singlecard = () => {
               />
             </div>
             <div>
-              <Button input="Watch now" bgColor="blue" color="#fff" to="" />
+              <Button input="Watch now" bgColor="#1D4ED8" color="#fff" to="" />
             </div>
           </div>
         </div>
