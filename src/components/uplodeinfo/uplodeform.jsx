@@ -50,9 +50,15 @@ const textareaData = [
   },
 ];
 
-const Uplodeform = () => {
+const Uplodeform = ({ movieData, setMovieData }) => {
+  const addMovie = (movieInfo) => {
+    setMovieData((prev) => {
+      return { ...prev, movieInfo };
+    });
+  };
+
   return (
-    <div>
+    <div className="sm:sticky top-0">
       <form className="flex flex-col gap-1 bg-white p-5 rounded-md shadow-lg border my-5 ">
         <h1 className="text-center uppercase text-slate-700">
           upload movie data
