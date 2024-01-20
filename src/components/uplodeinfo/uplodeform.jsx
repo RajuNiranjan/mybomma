@@ -1,62 +1,57 @@
+"use client";
 import Input from "@/ui/input";
 import React from "react";
 
-const data = [
+const uplodeInputData = [
   {
-    title: " image URL",
+    labelName: "img",
     type: "text",
     placeholder: "enter movie image...",
   },
   {
-    title: " title",
+    labelName: "title",
     type: "text",
-    placeholder: "enter movie title...",
+    placeholder: "enter movie labelName...",
   },
   {
-    title: "released year",
+    labelName: "year",
     type: "text",
     placeholder: "enter movie year...",
   },
   {
-    title: " zoner",
+    labelName: "zoner",
     type: "text",
     placeholder: "enter movie zoner...",
   },
   {
-    title: " cast",
+    labelName: "cast",
     type: "text",
     placeholder: "enter movie cast...",
   },
   {
-    title: " director",
+    labelName: "director",
     type: "text",
     placeholder: "enter movie director...",
   },
   {
-    title: "trailer link",
+    labelName: "trailer",
     type: "text",
     placeholder: "enter movie trailer...",
   },
 ];
 
-const textareaData = [
+const textareaUplodeInputData = [
   {
-    title: "synopsis",
+    labelName: "synopsis",
     placeholder: "enter movie synopsis...",
   },
   {
-    title: "description",
+    labelName: "description",
     placeholder: "enter movie description...",
   },
 ];
 
-const Uplodeform = ({ movieData, setMovieData }) => {
-  const addMovie = (movieInfo) => {
-    setMovieData((prev) => {
-      return { ...prev, movieInfo };
-    });
-  };
-
+const UplodeForm = () => {
   return (
     <div className="sm:sticky top-0">
       <form className="flex flex-col gap-1 bg-white p-5 rounded-md shadow-lg border my-5 ">
@@ -64,11 +59,11 @@ const Uplodeform = ({ movieData, setMovieData }) => {
           upload movie data
         </h1>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-          {data?.map((e) => {
+          {uplodeInputData?.map((e) => {
             return (
               <div key={e.placeholder}>
                 <span className="font-light text-slate-500 text-[10px] capitalize">
-                  {e.title}
+                  {e.labelName}
                 </span>
                 <Input
                   key={e.placeholder}
@@ -79,11 +74,11 @@ const Uplodeform = ({ movieData, setMovieData }) => {
             );
           })}
         </div>
-        {textareaData?.map((e) => {
+        {textareaUplodeInputData?.map((e) => {
           return (
             <div key={e.placeholder} className="flex flex-col">
               <span className="font-light text-slate-500 text-[10px] capitalize">
-                {e.title}
+                {e.labelName}
               </span>
               <textarea
                 key={e.placeholder}
@@ -95,7 +90,9 @@ const Uplodeform = ({ movieData, setMovieData }) => {
             </div>
           );
         })}
-        <button className="bg-blue-500 hover:opacity-85 py-2 rounded-md font-bold text-white tracking-[1px] text-lg my-3">
+        <button
+          type="submit"
+          className="bg-blue-500 hover:opacity-85 py-2 rounded-md font-bold text-white tracking-[1px] text-lg my-3">
           Add
         </button>
       </form>
@@ -103,4 +100,4 @@ const Uplodeform = ({ movieData, setMovieData }) => {
   );
 };
 
-export default Uplodeform;
+export default UplodeForm;

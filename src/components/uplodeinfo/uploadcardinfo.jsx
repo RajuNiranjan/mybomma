@@ -7,7 +7,7 @@ import { GrUpdate } from "react-icons/gr";
 const UploadCardInfo = () => {
   return (
     <div className="my-5">
-      <div className="h-[140px] w-full rounded-md shadow-md border p-2 flex justify-between gap-3 bg-white ">
+      <div className="h-max w-full rounded-md shadow-md border p-2 flex justify-between gap-3 bg-white ">
         <div className="w-full flex gap-2 ">
           <div className="basis-1/6 flex  items-center justify-center">
             <Image
@@ -19,10 +19,12 @@ const UploadCardInfo = () => {
           </div>
           <div className="basis-5/6 flex flex-col justify-between gap-1">
             <div className="">
-              <h1 className="font-bold capitalize">
+              <h1 className="font-bold capitalize text-[12px] sm:text-sm">
                 90s middle class memories
               </h1>
-              <p className="font-semibold text-[10px]">2024</p>
+              <div className="flex items-center my-1">
+                <p className="font-semibold text-[10px]">2024</p>
+              </div>
               <p className="text-[10px]">
                 Lorem ipsum, dolor sit amet consectetur adipisicing elit. Natus
                 eveniet excepturi, laborum nostrum sit maiores voluptatum unde
