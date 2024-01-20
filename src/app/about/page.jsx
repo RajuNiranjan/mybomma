@@ -12,7 +12,8 @@ const page = () => {
         <br />
         Our extensive content library includes Telugu movies across genres. Out
         content is regularly added and is suited exclusively for the Telugu
-        audience.
+        audience. content is regularly added and is suited exclusively for the
+        Telugu audience.
         <br />
         <br />
         Available on devices including Mobile, Tablet, Web, Laptop and PCs, now
