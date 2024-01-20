@@ -3,7 +3,7 @@ import React from "react";
 
 const data = [
   {
-    title: " image",
+    title: " image URL",
     type: "text",
     placeholder: "enter movie image...",
   },
@@ -53,7 +53,7 @@ const textareaData = [
 const Uplodeform = () => {
   return (
     <div>
-      <form className="flex flex-col gap-1 w-[350px] sm:w-[500px]  bg-white p-5 rounded-md shadow-lg border my-5">
+      <form className="flex flex-col gap-1 bg-white p-5 rounded-md shadow-lg border my-5 ">
         <h1 className="text-center uppercase text-slate-700">
           upload movie data
         </h1>
@@ -75,7 +75,7 @@ const Uplodeform = () => {
         </div>
         {textareaData?.map((e) => {
           return (
-            <div key={e.placeholder}>
+            <div key={e.placeholder} className="flex flex-col">
               <span className="font-light text-slate-500 text-[10px] capitalize">
                 {e.title}
               </span>
@@ -89,8 +89,8 @@ const Uplodeform = () => {
             </div>
           );
         })}
-        <button className="bg-blue-500 hover:opacity-85 py-2 rounded-md font-bold text-white tracking-[1px] text-lg">
-          Add{". "}
+        <button className="bg-blue-500 hover:opacity-85 py-2 rounded-md font-bold text-white tracking-[1px] text-lg my-3">
+          Add
         </button>
       </form>
     </div>
@@ -98,13 +98,3 @@ const Uplodeform = () => {
 };
 
 export default Uplodeform;
-
-// id;
-// img;
-// title;
-// year;
-// zoner;
-// cast;
-// director;
-// trailer;
-// synopsis;

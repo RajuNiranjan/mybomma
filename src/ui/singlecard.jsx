@@ -7,7 +7,6 @@ import Image from "next/image";
 
 const Singlecard = () => {
   const { singleMovieData } = useContext(GlobalContext);
-  console.log(singleMovieData?.title);
   return (
     <div className="p-14">
       <div className="flex flex-wrap gap-3 sm:gap-5 md:gap-7 lg:gap-9 xl:gap-10 w-full h-max">

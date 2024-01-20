@@ -12,6 +12,7 @@ const Footer = () => {
         <span> | </span>
         <Link href="/">T&C</Link>
         <span> | </span>
+        <Link href="/admin-dashboard">Admin Dashboard</Link>
       </div>
       <div>
         <h1 className="text-[10px] sm:text-sm md:text-sm lg:text-sm xl:text-sm">
