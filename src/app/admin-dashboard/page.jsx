@@ -8,7 +8,7 @@ const AdminDashboard = () => {
 
   return (
     <div>
-      <div className="hidden sm:inline md:inline-grid lg:inline-grid xl:inline-grid  w-full grid grid-cols-1 sm:grid-cols-12 gap-2">
+      <div className="hidden sm:inline lg:inline-grid xl:inline-grid  w-full grid grid-cols-1 sm:grid-cols-12 gap-2">
         <div className=" sm:col-span-8">
           <UploadCardInfo inputValue={inputValue} />
         </div>

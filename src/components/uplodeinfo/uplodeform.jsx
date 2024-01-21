@@ -69,26 +69,13 @@ const uplodeInputData = [
 // ];
 
 const UplodeForm = () => {
-  const {
-    register,
-    handleSubmit,
-    watch,
-    formState: { errors },
-  } = useForm();
-
-  const onSubmit = (data) => console.log(data);
-
   return (
     <div className="sm:sticky top-0">
-      <form
-        onSubmit={handleSubmit(onSubmit)}
-        className="flex flex-col gap-1 bg-white p-5 rounded-md shadow-lg border my-5 ">
+      <form className="flex flex-col gap-1 bg-white p-5 rounded-md shadow-lg border my-5 ">
         <h1 className="text-center uppercase text-slate-700">
           upload movie data
         </h1>
-        <div
-          // onSubmit={handleSubmit(onSubmit)}
-          className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+        <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-2 gap-2">
           {uplodeInputData?.map((e) => {
             return (
               <div key={e.placeholder}>
@@ -98,10 +85,9 @@ const UplodeForm = () => {
 
                 <div className="flex items-center justify-center w-full border p-1  rounded-md border-slate-300 hover:border-blue-300">
                   <input
-                    {...register(e?.name)}
                     type={e.type}
                     placeholder={e.placeholder}
-                    className=" w-full bg-transparent focus:outline-none placeholder-slate-500 text-slate-800 placeholder:text-slate-500 placeholder:text-sm placeholder:font-light"
+                    className=" w-full bg-transparent focus:outline-none placeholder-slate-500 text-slate-800 placeholder:text-slate-500 placeholder:text-[12px] placeholder:font-light"
                   />
                   <span className="cursor-pointer">{e.icon}</span>
                 </div>
