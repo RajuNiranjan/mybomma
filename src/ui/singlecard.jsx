@@ -13,7 +13,7 @@ const Singlecard = () => {
         <div>
           <Image
             className="rounded-md"
-            src={singleMovieData?.img}
+            src={singleMovieData?.image}
             alt="movie poster"
             width={300}
             height={300}

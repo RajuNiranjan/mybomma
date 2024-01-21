@@ -3,6 +3,7 @@ import "./globals.css";
 import { GlobalContextProvider } from "@/context/context";
 import Navbar from "@/components/navbar/navbar";
 import Footer from "@/components/footer/footer";
+import ShowNavBar from "@/components/showNavBar/showNavBar";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -17,9 +18,13 @@ export default function RootLayout({ children }) {
       <body className={inter.className}>
         <GlobalContextProvider>
           <div className="container m-auto flex flex-col h-screen justify-between">
-            <Navbar />
+            <ShowNavBar>
+              <Navbar />
+            </ShowNavBar>
             <div className="px-5">{children}</div>
-            <Footer />
+            <ShowNavBar>
+              <Footer />
+            </ShowNavBar>
           </div>
         </GlobalContextProvider>
       </body>

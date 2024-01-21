@@ -1,10 +1,10 @@
 "use client";
 import Input from "@/ui/input";
-import React from "react";
+import React, { useState } from "react";
 
 const uplodeInputData = [
   {
-    labelName: "img",
+    labelName: "image",
     type: "text",
     placeholder: "enter movie image...",
   },

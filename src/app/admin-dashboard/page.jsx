@@ -1,7 +1,7 @@
 "use client";
 import UploadCardInfo from "@/components/uplodeinfo/uploadcardinfo";
 import UplodeForm from "@/components/uplodeinfo/uplodeform";
-import React from "react";
+import React, { useState } from "react";
 
 const AdminDashboard = () => {
   return (

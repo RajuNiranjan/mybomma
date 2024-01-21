@@ -6,7 +6,7 @@ export const GlobalContext = createContext();
 const singlePost = [
   {
     id: "01",
-    img: "https://who.ibomma.link/wp-content/uploads/2023/12/Keedaa-Cola-Telugu-glb2o-2023-230x345.jpg",
+    image: "https://who.ibomma.link/wp-content/uploads/2023/12/Keedaa-Cola-Telugu-glb2o-2023-230x345.jpg",
     title: "Keedaa Cola",
     year: "2023",
     zoner: "Action / Comedy / Crime",
@@ -19,7 +19,7 @@ const singlePost = [
   },
   {
     id: "02",
-    img: "https://who.ibomma.link/wp-content/uploads/2024/01/Hi-Nanna-Telugu-tgh7v-2023-230x345.jpg",
+    image: "https://who.ibomma.link/wp-content/uploads/2024/01/Hi-Nanna-Telugu-tgh7v-2023-230x345.jpg",
     title: "Hi Nanna",
     year: "2023",
     zoner: "Drama / Family / Romance",
@@ -32,7 +32,7 @@ const singlePost = [
   },
   {
     id: "03",
-    img: "https://who.ibomma.link/wp-content/uploads/2024/01/90s-Middle-Class-Biopic-Telugu-fmp2v-2024-230x345.jpg",
+    image: "https://who.ibomma.link/wp-content/uploads/2024/01/90s-Middle-Class-Biopic-Telugu-fmp2v-2024-230x345.jpg",
     title: "90s Middle Class Biopic",
     year: "2024",
     zoner: "Drama",
@@ -45,7 +45,7 @@ const singlePost = [
   },
   {
     id: "04",
-    img: "https://who.ibomma.link/wp-content/uploads/2024/01/Kotabommali-PS-Telugu-gry2u-2023-230x345.jpg",
+    image: "https://who.ibomma.link/wp-content/uploads/2024/01/Kotabommali-PS-Telugu-gry2u-2023-230x345.jpg",
     title: "Kotabommali PS",
     year: "2023",
     zoner: "Action / Crime / Thriller",
@@ -58,7 +58,7 @@ const singlePost = [
   },
   {
     id: "05",
-    img: "https://who.ibomma.link/wp-content/uploads/2023/12/Annapoorani-Telugu-cgu4l-2023-230x345.jpg",
+    image: "https://who.ibomma.link/wp-content/uploads/2023/12/Annapoorani-Telugu-cgu4l-2023-230x345.jpg",
     title: "Annapoorani",
     year: "2023",
     zoner: "Drama",
@@ -71,7 +71,7 @@ const singlePost = [
   },
   {
     id: "06",
-    img: "https://who.ibomma.link/wp-content/uploads/2023/12/Parking-Telugu-us8ma-2023-230x345.jpg",
+    image: "https://who.ibomma.link/wp-content/uploads/2023/12/Parking-Telugu-us8ma-2023-230x345.jpg",
     title: "Parking",
     year: "2023",
     zoner: "Drama / Thriller",
@@ -86,6 +86,8 @@ const singlePost = [
 
 export const GlobalContextProvider = ({ children }) => {
   const [singleMovieData, setSingleMovieData] = useState();
+
+  
 
   return (
     <GlobalContext.Provider

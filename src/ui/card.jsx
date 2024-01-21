@@ -24,7 +24,7 @@ const Card = () => {
           <div onClick={() => handelNavgateSinglePage(item)}>
             <Image
               className="rounded-lg cursor-pointer"
-              src={item?.img}
+              src={item?.image}
               width={500}
               height={500}
               alt="Picture of the movie"
