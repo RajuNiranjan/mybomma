@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import { useForm } from "react-hook-form";
+import axios from "axios";
 
 const uplodeInputData = [
   {
@@ -57,18 +57,35 @@ const uplodeInputData = [
   },
 ];
 
-// const textareaUplodeInputData = [
-//   {
-//     labelName: "synopsis",
-//     placeholder: "enter movie synopsis...",
-//   },
-//   {
-//     labelName: "description",
-//     placeholder: "enter movie description...",
-//   },
-// ];
-
 const UplodeForm = () => {
+  const [formData, setFormData] = useState({});
+
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.id]: e.target.value,
+    });
+  };
+
+  const handleClieck = async (e) => {
+    e.preventDefault();
+    console.log("sumitted");
+    const res = await fetch(
+      "http://localhost:5000/api/adminUploadData/admin-dashboard",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      }
+    );
+    const data = await res.json();
+    console.log("data-----", data);
+  };
+
+  console.log("formdata when input enter", formData);
+
   return (
     <div className="sm:sticky top-0">
       <form className="flex flex-col gap-1 bg-white p-5 rounded-md shadow-lg border my-5 ">
@@ -85,7 +102,9 @@ const UplodeForm = () => {
 
                 <div className="flex items-center justify-center w-full border p-1  rounded-md border-slate-300 hover:border-blue-300">
                   <input
-                    type={e.type}
+                    onChange={handleChange}
+                    id={e.name}
+                    name={e.name}
                     placeholder={e.placeholder}
                     className=" w-full bg-transparent focus:outline-none placeholder-slate-500 text-slate-800 placeholder:text-slate-500 placeholder:text-[12px] placeholder:font-light"
                   />
@@ -95,23 +114,8 @@ const UplodeForm = () => {
             );
           })}
         </div>
-        {/* {textareaUplodeInputData?.map((e) => {
-          return (
-            <div key={e.placeholder} className="flex flex-col">
-              <span className="font-light text-slate-500 text-[10px] capitalize">
-                {e.labelName}
-              </span>
-              <textarea
-                key={e.placeholder}
-                className="border h-20 rounded-md p-2 focus:outline-none hover:border-blue-300 placeholder:text-slate-500 font-light"
-                cols="30"
-                rows="10"
-                placeholder={e.placeholder}
-              />
-            </div>
-          );
-        })} */}
         <button
+          onClick={handleClieck}
           type="submit"
           className="bg-blue-500 hover:opacity-85 py-2 rounded-md font-bold text-white tracking-[1px] text-lg my-3">
           Add

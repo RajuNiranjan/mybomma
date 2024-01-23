@@ -421,3 +421,17 @@
 // };
 
 // export default UplodeForm;
+
+/////////////////
+////////////////////////////
+////////////////////////////////////
+
+// import { useContext } from "react";
+// import { GlobalContext } from "@/context/context";
+// const { handleChange, handleClieck } = useContext(GlobalContext);
+// <UplodeForm handleChange={handleChange} handleClieck={handleClieck} />;
+// <UplodeForm handleChange={handleChange} handleClieck={handleClieck} />;
+
+// in dashboard page above
+
+
