@@ -1,5 +1,7 @@
+"use client";
 import Link from "next/link";
-import React from "react";
+import { useRouter } from "next/navigation";
+import React, { useState } from "react";
 
 const signUpFormData = [
   {
@@ -23,6 +25,23 @@ const signUpFormData = [
 ];
 
 const UserSignUp = () => {
+  const router = useRouter();
+  const [signUp, setSignUp] = useState({});
+
+  const handleChange = (e) => {
+    setSignUp({
+      ...signUp,
+      [e.target.id]: e.target.value,
+    });
+  };
+
+  console.log(signUp);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    router.push("/user-signin");
+  };
+
   return (
     <div className="flex justify-center items-center">
       <form
@@ -31,15 +50,19 @@ const UserSignUp = () => {
         <h1 className="text-2xl">Sign up</h1>
         {signUpFormData?.map((item, index) => (
           <input
+            onChange={handleChange}
             key={index}
             required
+            id={item.id}
             type={item.type}
             name={item.name}
             placeholder={item.placeholder}
             className="w-full rounded-md px-2 py-1 border border-slate-400 hover:border-blue-400 placeholder:text-[12px] text-[14px] focus:outline-none "
           />
         ))}
-        <button className="bg-blue-500 w-full rounded-md text-white font-light text-sm py-1 hover:opacity-85">
+        <button
+          onClick={handleSubmit}
+          className="bg-blue-500 w-full rounded-md text-white font-light text-sm py-1 hover:opacity-85">
           sign in
         </button>
         <p className="text-[12px]">

@@ -1,8 +1,16 @@
 "use client";
 import Button from "@/ui/button";
+import { useRouter } from "next/navigation";
 import React from "react";
 
 const HomeCard = () => {
+  const router = useRouter();
+
+  const handleEnter = (e) => {
+    e.preventDefault(e);
+    router.push("/user-signin");
+  };
+
   return (
     <div className="h-screen bg-blue-50 text-black flex select-none justify-center items-center">
       <div className="text-center w-[750px] p-5 sm:p-10 rounded-md  flex flex-col gap-5 shadow-xl border bg-white">
@@ -16,7 +24,8 @@ const HomeCard = () => {
         </div>
         <div className="flex justify-center items-center">
           <Button
-            to="/movieshome"
+            to=""
+            onClick={handleEnter}
             bgColor="#1D4ED8"
             color="white"
             width="150px"
