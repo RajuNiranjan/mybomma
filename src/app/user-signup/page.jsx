@@ -1,8 +1,13 @@
 import Link from "next/link";
 import React from "react";
-import { BsIncognito } from "react-icons/bs";
 
-const signInFormData = [
+const signUpFormData = [
+  {
+    id: 1,
+    type: "text",
+    placeholder: "user name",
+    name: "email",
+  },
   {
     id: 1,
     type: "email",
@@ -17,14 +22,14 @@ const signInFormData = [
   },
 ];
 
-const UserSignIn = () => {
+const UserSignUp = () => {
   return (
-    <div className=" flex justify-center items-center">
+    <div className="flex justify-center items-center">
       <form
         action=""
-        className="bg-white w-[450px] rounded-md border shadow-md p-10 flex flex-col  gap-3 justify-center items-center relative">
-        <h1 className="text-2xl">Sign in</h1>
-        {signInFormData?.map((item, index) => (
+        className="bg-white w-[450px] rounded-md border shadow-md p-10 flex flex-col  gap-3 justify-center items-center">
+        <h1 className="text-2xl">Sign up</h1>
+        {signUpFormData?.map((item, index) => (
           <input
             key={index}
             required
@@ -38,17 +43,14 @@ const UserSignIn = () => {
           sign in
         </button>
         <p className="text-[12px]">
-          dont&apos;t have an account?{" "}
-          <Link href={"/user-signup"}>
+          have an account?{" "}
+          <Link href={"/user-signin"}>
             <span className="text-blue-400">sign up</span>
           </Link>
         </p>
       </form>
-      <p className="absolute mt-[-250px] text-3xl bg-slate-300 rounded-full p-2 text-white">
-        <BsIncognito />
-      </p>
     </div>
   );
 };
 
-export default UserSignIn;
+export default UserSignUp;

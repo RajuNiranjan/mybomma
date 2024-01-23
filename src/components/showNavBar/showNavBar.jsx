@@ -10,11 +10,11 @@ const ShowNavFootBar = ({ children }) => {
       setShowNavFoot(false);
     } else if (pathName === "/admin-login") {
       setShowNavFoot(false);
-    }
-    // else if (pathName === "/user-signin") {
-    //   setShowNavFoot(false);
-    // }
-    else {
+    } else if (pathName === "/user-signin") {
+      setShowNavFoot(false);
+    } else if (pathName === "/user-signup") {
+      setShowNavFoot(false);
+    } else {
       setShowNavFoot(true);
     }
   }, [pathName]);
