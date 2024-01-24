@@ -37,10 +37,58 @@ const UserSignUp = () => {
 
   console.log(signUp);
 
-  const handleSubmit = (e) => {
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+  //   // router.push("/user-signin");
+  //   const res = await fetch("http://localhost:5000/api/signup/user-signup", {
+  //     method: "POST",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     },
+  //     body: JSON.stringify(signUp),
+  //   });
+  //   const data = await res.json();
+  //   console.log("data-----", data);
+  // };
+
+  const handleClieck = async (e) => {
     e.preventDefault();
-    router.push("/user-signin");
+    console.log("submitted");
+    try {
+      const res = await fetch("http://localhost:5000/api/signup/user-signup", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(signUp),
+      });
+
+      if (!res.ok) {
+        throw new Error(`HTTP error! Status: ${res.status}`);
+      }
+
+      const data = await res.json();
+      console.log("data-----", data);
+    } catch (error) {
+      console.error("Error:", error.message);
+    }
   };
+
+  // const handleClieck = async (e) => {
+  //   e.preventDefault();
+  //   console.log("sumitted");
+  //   const res = await fetch("http://localhost:5000/api/signup/user-signup", {
+  //     method: "POST",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     },
+  //     body: JSON.stringify(signUp),
+  //   });
+  //   const data = await res.json();
+  //   console.log("data-----", data);
+  // };
+
+  console.log("signup when input enter", setSignUp);
 
   return (
     <div className="flex justify-center items-center">
@@ -61,7 +109,7 @@ const UserSignUp = () => {
           />
         ))}
         <button
-          onClick={handleSubmit}
+          onClick={handleClieck}
           className="bg-blue-500 w-full rounded-md text-white font-light text-sm py-1 hover:opacity-85">
           sign in
         </button>

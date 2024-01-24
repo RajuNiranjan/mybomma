@@ -67,21 +67,47 @@ const UplodeForm = () => {
     });
   };
 
+  // const handleClieck = async (e) => {
+  //   e.preventDefault();
+  //   console.log("sumitted");
+  //   const res = fetch(
+  //     "http://localhost:5000/api/adminUploadData/admin-dashboard",
+  //     {
+  //       method: "POST",
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //       },
+  //       body: JSON.stringify(formData),
+  //     }
+  //   );
+  //   const data = await res.json();
+  //   console.log("data-----", data);
+  // };
+
   const handleClieck = async (e) => {
     e.preventDefault();
-    console.log("sumitted");
-    const res = await fetch(
-      "http://localhost:5000/api/adminUploadData/admin-dashboard",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
+    console.log("submitted");
+    try {
+      const res = await fetch(
+        "http://localhost:5000/api/adminUploadData/admin-dashboard",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
+        }
+      );
+
+      if (!res.ok) {
+        throw new Error(`HTTP error! Status: ${res.status}`);
       }
-    );
-    const data = await res.json();
-    console.log("data-----", data);
+
+      const data = await res.json();
+      console.log("data-----", data);
+    } catch (error) {
+      console.error("Error:", error.message);
+    }
   };
 
   console.log("formdata when input enter", formData);

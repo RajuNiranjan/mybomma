@@ -24,8 +24,8 @@ const HomeCard = () => {
         </div>
         <div className="flex justify-center items-center">
           <Button
-            to=""
-            onClick={handleEnter}
+            to="/movieshome"
+            // onClick={handleEnter}
             bgColor="#1D4ED8"
             color="white"
             width="150px"
