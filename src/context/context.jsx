@@ -93,12 +93,58 @@ const singlePost = [
 export const GlobalContextProvider = ({ children }) => {
   const [singleMovieData, setSingleMovieData] = useState();
 
+  const [formData, setFormData] = useState({});
+
+  const [commingData, setCommingData] = useState([]);
+
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.id]: e.target.value,
+    });
+  };
+
+  const handleClieck = async (e) => {
+    e.preventDefault();
+    console.log("submitted");
+    try {
+      const res = await fetch(
+        "http://localhost:5000/api/adminUploadData/admin-dashboard",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
+        }
+      );
+
+      if (!res.ok) {
+        throw new Error(`HTTP error! Status: ${res.status}`);
+      }
+
+      const data = await res.json();
+      setCommingData((oldArray) => [...oldArray, data?.data]);
+      console.log("data-----", data?.data?.title);
+    } catch (error) {
+      console.error("Error:", error.message);
+    }
+  };
+
+  console.log("commingData", commingData);
+
   return (
     <GlobalContext.Provider
       value={{
         singlePost,
         singleMovieData,
         setSingleMovieData,
+        formData,
+        setFormData,
+        commingData,
+        setCommingData,
+        handleChange,
+        handleClieck,
       }}>
       {children}
     </GlobalContext.Provider>

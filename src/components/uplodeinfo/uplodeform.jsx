@@ -1,6 +1,7 @@
 "use client";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import axios from "axios";
+import { GlobalContext } from "@/context/context";
 
 const uplodeInputData = [
   {
@@ -58,59 +59,14 @@ const uplodeInputData = [
 ];
 
 const UplodeForm = () => {
-  const [formData, setFormData] = useState({});
-
-  const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.id]: e.target.value,
-    });
-  };
-
-  // const handleClieck = async (e) => {
-  //   e.preventDefault();
-  //   console.log("sumitted");
-  //   const res = fetch(
-  //     "http://localhost:5000/api/adminUploadData/admin-dashboard",
-  //     {
-  //       method: "POST",
-  //       headers: {
-  //         "Content-Type": "application/json",
-  //       },
-  //       body: JSON.stringify(formData),
-  //     }
-  //   );
-  //   const data = await res.json();
-  //   console.log("data-----", data);
-  // };
-
-  const handleClieck = async (e) => {
-    e.preventDefault();
-    console.log("submitted");
-    try {
-      const res = await fetch(
-        "http://localhost:5000/api/adminUploadData/admin-dashboard",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(formData),
-        }
-      );
-
-      if (!res.ok) {
-        throw new Error(`HTTP error! Status: ${res.status}`);
-      }
-
-      const data = await res.json();
-      console.log("data-----", data);
-    } catch (error) {
-      console.error("Error:", error.message);
-    }
-  };
-
-  console.log("formdata when input enter", formData);
+  const {
+    formData,
+    setFormData,
+    commingData,
+    setCommingData,
+    handleChange,
+    handleClieck,
+  } = useContext(GlobalContext);
 
   return (
     <div className="sm:sticky top-0">
@@ -147,6 +103,9 @@ const UplodeForm = () => {
           Add
         </button>
       </form>
+      {commingData?.map((item, index) => (
+        <p key={index}>{item?.year}</p>
+      ))}
     </div>
   );
 };
