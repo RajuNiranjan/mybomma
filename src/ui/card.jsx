@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useContext } from "react";
 // import { GlobalContext } from "@/context/context";
 import Image from "next/image";
@@ -20,6 +20,7 @@ const Card = () => {
 
   return (
     <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-2 px-5 w-full">
+      {console.log("commData- from card", commingData)}
       {singlePost?.map((item) => (
         <div key={item?.id}>
           <div onClick={() => handelNavgateSinglePage(item)}>
