@@ -97,7 +97,8 @@ export const GlobalContextProvider = ({ children }) => {
   const fetchData = async () => {
     try {
       const response = await fetch(
-        `${process.env.NEXT_PUBLIC_APP_SERVER_URL}/api/getAllMovies`
+        "https://mybomma-backed.onrender.com/api/getAllMovies"
+        // `${process.env.NEXT_PUBLIC_APP_SERVER_URL}/api/getAllMovies`
       );
       const data = await response.json();
       setMovies(data);
