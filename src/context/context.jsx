@@ -1,5 +1,5 @@
 "use client";
-import React, { createContext, useState } from "react";
+import React, { createContext, useEffect, useState } from "react";
 
 export const GlobalContext = createContext();
 
@@ -92,46 +92,23 @@ const singlePost = [
 
 export const GlobalContextProvider = ({ children }) => {
   const [singleMovieData, setSingleMovieData] = useState();
+  const [movies, setMovies] = useState();
 
-  const [formData, setFormData] = useState({});
-
-  const [commingData, setCommingData] = useState([]);
-
-  const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.id]: e.target.value,
-    });
-  };
-
-  const handleClieck = async (e) => {
-    e.preventDefault();
-    console.log("submitted");
-    try {
-      const res = await fetch(
-        "http://localhost:5000/api/adminUploadData/admin-dashboard",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(formData),
-        }
-      );
-
-      if (!res.ok) {
-        throw new Error(`HTTP error! Status: ${res.status}`);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch(
+          "https://mybomma-backed.onrender.com/api/getAllMovies"
+        );
+        const data = await response.json();
+        setMovies(data); // Assuming the response is an array of movies, adjust accordingly
+      } catch (error) {
+        console.error("Error fetching data:", error);
       }
+    };
 
-      const data = await res.json();
-      setCommingData((oldArray) => [...oldArray, data?.data]);
-      console.log("data-----", data?.data?.title);
-    } catch (error) {
-      console.error("Error:", error.message);
-    }
-  };
-
-  console.log("commingData", commingData);
+    fetchData();
+  }, []);
 
   return (
     <GlobalContext.Provider
@@ -139,12 +116,7 @@ export const GlobalContextProvider = ({ children }) => {
         singlePost,
         singleMovieData,
         setSingleMovieData,
-        formData,
-        setFormData,
-        commingData,
-        setCommingData,
-        handleChange,
-        handleClieck,
+        movies,
       }}>
       {children}
     </GlobalContext.Provider>
