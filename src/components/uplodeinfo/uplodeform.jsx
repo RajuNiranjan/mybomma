@@ -81,7 +81,7 @@ const UplodeForm = () => {
     e.preventDefault();
     console.log("form submitted");
     try {
-      const res = await fetch("http://localhost:8000/api/admin-dashboard", {
+      const res = await fetch(`${process.env.API}/api/admin-dashboard"`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
