@@ -94,18 +94,34 @@ export const GlobalContextProvider = ({ children }) => {
   const [singleMovieData, setSingleMovieData] = useState();
   const [movies, setMovies] = useState();
 
-  const fetchData = async () => {
-    try {
-      const response = await fetch(
-        "https://mybomma-backed.onrender.com/api/getAllMovies"
-      );
-      const data = await response.json();
-      setMovies(data);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-  fetchData();
+  // const fetchData = async () => {
+  //   try {
+  //     const response = await fetch(
+  //       "https://mybomma-backed.onrender.com/api/getAllMovies"
+  //     );
+  //     const data = await response.json();
+  //     setMovies(data);
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
+  // fetchData();
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch(
+          "https://mybomma-backed.onrender.com/api/getAllMovies"
+        );
+        const data = await response.json();
+        setMovies(data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    fetchData();
+  }, []);
 
   return (
     <GlobalContext.Provider

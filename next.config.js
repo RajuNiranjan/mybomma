@@ -5,6 +5,6 @@ const nextConfig = {};
 
 module.exports = {
   images: {
-    domains: ["who.ibomma.link"],
+    domains: ["who.ibomma.link", "dev.ibomma.nexus"],
   },
 };
